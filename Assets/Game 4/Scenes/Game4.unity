@@ -247,6 +247,8 @@ MonoBehaviour:
   horizontalInput: 0
   verticalInput: 0
   speed: 10
+  player: {fileID: 123027118}
+  jumpForce: 100010
 --- !u!1 &251883418
 GameObject:
   m_ObjectHideFlags: 0
