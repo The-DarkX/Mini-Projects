@@ -33,14 +33,8 @@ public class FloaterManager : MonoBehaviour
         if (transform.childCount < totalFloaterAmount) 
         {
             Time.timeScale = 0.5f;
-            Invoke("Restart", 0.5f);
+            GameManager.Restart();
         }
-    }
-
-    void Restart() 
-    {
-        int index = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(index);
     }
 
 	private void OnDrawGizmos()
