@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class FloaterManager : MonoBehaviour
 {
     public GameObject floaterPrefab;
-    public int totalAmount = 10;
+    public int totalFloaterAmount = 10;
 
     public Vector2 spawnArea;
 
@@ -19,7 +19,7 @@ public class FloaterManager : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        for (int i = 0; i < totalAmount; i++)
+        for (int i = 0; i < totalFloaterAmount; i++)
         {
             spawnPos = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), transform.position.z);
             spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 180));
@@ -30,7 +30,7 @@ public class FloaterManager : MonoBehaviour
 
     void Update()
     {
-        if (transform.childCount < totalAmount) 
+        if (transform.childCount < totalFloaterAmount) 
         {
             Time.timeScale = 0.5f;
             Invoke("Restart", 0.5f);
