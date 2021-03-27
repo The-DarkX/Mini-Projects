@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody player;
 
     private bool moveUp;
+    private bool resetMomentum;
+    
     private void Start()
     {
         levelControllerStartingPosition = levelController.transform.position;
@@ -24,19 +26,36 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if(moveUp)
-        {
-            player.AddForce(Vector3.up * verticalSpeed * Time.deltaTime, ForceMode.Impulse);
-        }
-        else
-        {
-            player.AddForce(Vector3.down * verticalSpeed * Time.deltaTime, ForceMode.Impulse);
-        }
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        
+            if (moveUp)
+            {
+                player.AddForce(Vector3.forward * verticalSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            }
+            else
+            {
+                player.AddForce(-Vector3.forward * verticalSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(moveUp);
+            
             moveUp = !moveUp;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LevelReset();
+        }
+
+        if(transform.position.z < -10)
+        {
+            LevelReset();
+        }
+
+        if(transform.position.z > 10)
+        {
+            LevelReset();
         }
 
        
@@ -46,9 +65,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            levelController.transform.position = levelControllerStartingPosition;
-
-            transform.rotation = playerStartingRotation;
+            LevelReset();
         }
+    }
+
+    void LevelReset()
+    {
+        levelController.transform.position = levelControllerStartingPosition;
+
+        transform.rotation = playerStartingRotation;
+        transform.position = new Vector3 (0, 0, 0);
+
     }
 }
