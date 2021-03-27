@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FloaterManager : MonoBehaviour
 {
-    public GameObject floaterPrefab;
+    public Text scoreText;
+
     public int totalFloaterAmount = 10;
 
     public Vector2 spawnArea;
 
+    public GameObject[] floaterPrefabs;
+
+    public List<GameObject> blueFloaters = new List<GameObject>();
+    public List<GameObject> yellowFloaters = new List<GameObject>();
+
     Vector3 spawnPos;
     Quaternion spawnRotation;
-
-    int orangeCount;
 
     void Start()
     {
@@ -22,19 +26,15 @@ public class FloaterManager : MonoBehaviour
         for (int i = 0; i < totalFloaterAmount; i++)
         {
             spawnPos = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), transform.position.z);
-            spawnRotation = Quaternion.Euler(0, 0, Random.Range(0, 180));
+            spawnRotation = Quaternion.Euler(0, 90, 0);
 
-            Instantiate(floaterPrefab, spawnPos, spawnRotation, transform);
+            Instantiate(floaterPrefabs[Random.Range(0, floaterPrefabs.Length)], spawnPos, spawnRotation, transform);
         }
     }
 
     void Update()
     {
-        if (transform.childCount < totalFloaterAmount) 
-        {
-            Time.timeScale = 0.5f;
-            GameManager.Restart();
-        }
+        GameManager.DisplayScore(scoreText, yellowFloaters.Count);
     }
 
 	private void OnDrawGizmos()
