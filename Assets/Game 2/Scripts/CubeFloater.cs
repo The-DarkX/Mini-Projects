@@ -76,9 +76,8 @@ public class CubeFloater : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-        if (collision.transform.CompareTag("Ground") && !isBlue) 
+        if (collision.transform.CompareTag("Ground") && !isBlue)
         {
-            Destroy(gameObject);
             GameManager.Restart();
         }
 	}
