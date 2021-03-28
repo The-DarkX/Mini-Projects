@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
-{    
-    public static void Restart() 
+{
+    AudioManager audioManager;
+
+	private void Start()
+	{
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.PlaySound("Background");
+	}
+
+	public static void Restart() 
     {
         int index = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(index);
