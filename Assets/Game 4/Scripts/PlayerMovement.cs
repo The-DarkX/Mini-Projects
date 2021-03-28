@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool moveUp;
     private bool resetMomentum;
+
+    public int score = 0;
     
     private void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         transform.rotation = new Quaternion(0, 0, 0, 0);
         
             if (moveUp)
@@ -67,6 +69,13 @@ public class PlayerMovement : MonoBehaviour
         {
             LevelReset();
         }
+
+        if (collision.gameObject.tag == "Coin")
+        {
+            AddPoint();
+        }
+
+
     }
 
     void LevelReset()
@@ -76,5 +85,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = playerStartingRotation;
         transform.position = new Vector3 (0, 0, 0);
 
+    }
+
+    void AddPoint()
+    {
+        score += 1 ;
     }
 }
