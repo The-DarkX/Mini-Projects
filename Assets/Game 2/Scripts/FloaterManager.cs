@@ -19,7 +19,7 @@ public class FloaterManager : MonoBehaviour
     Vector3 spawnPos;
     Quaternion spawnRotation;
 
-    void Start()
+	void Start()
     {
         Time.timeScale = 1;
 

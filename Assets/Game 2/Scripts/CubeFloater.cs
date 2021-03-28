@@ -15,10 +15,12 @@ public class CubeFloater : MonoBehaviour
 
     Rigidbody rb;
     FloaterManager manager;
+    AudioManager audioManager;
 
     void Start()
     {
         manager = GetComponentInParent<FloaterManager>();
+        audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -63,6 +65,8 @@ public class CubeFloater : MonoBehaviour
 	private void OnMouseDown()
 	{
         isBlue = !isBlue;
+
+        audioManager.PlaySound("Select");
 
         if (isBlue)
         {
