@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game 2/Scenes/Game 2 Demo.unity
-    guid: c7492b131fb1e8045a0df5ee3a8fc4bf
-  - enabled: 0
+    path: Assets/Main Menu/Main Menu.unity
+    guid: e58cc104124c0444786b938a62f47775
+  - enabled: 1
     path: Assets/Game 1/Scenes/Game 1 Demo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Game 2/Scenes/Game 2 Demo.unity
+    guid: c7492b131fb1e8045a0df5ee3a8fc4bf
+  - enabled: 1
     path: Assets/Game 3/Scenes/Game 3 Demo.unity
     guid: bfcd687d3fc85a241bc66acd89e24c4c
   m_configObjects: {}

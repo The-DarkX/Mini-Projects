@@ -43,4 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48461ff358a86b4f9a35b8a7f8a603d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Background
+    clip: {fileID: 8300000, guid: 36cd621264e181143b4dca5d779cd762, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: Select
+    clip: {fileID: 8300000, guid: a9ba04a7ecc44234db11d079896e1959, type: 3}
+    volume: 0.6
+    pitch: 1
+    randomVolume: 0.5
+    randomPitch: 0.5
+    loop: 0

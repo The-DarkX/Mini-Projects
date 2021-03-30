@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
+
         audioManager.PlaySound("Background");
 	}
 
@@ -23,5 +24,10 @@ public class GameManager : MonoBehaviour
     public static void DisplayScore(Text scoreText, int score) 
     {
         scoreText.text = score.ToString();
+    }
+
+    public static void LoadScene(int index) 
+    {
+        SceneManager.LoadScene(index);
     }
 }

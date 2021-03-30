@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1924,71 +1924,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Audio Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 36cd621264e181143b4dca5d779cd762, type: 3}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Background
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a9ba04a7ecc44234db11d079896e1959, type: 3}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].name
-      value: Select
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[0].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].volume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].randomPitch
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100107918320458934, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e,
-        type: 3}
-      propertyPath: sounds.Array.data[1].randomVolume
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ea0027c2a00e6b4e8a6dab3c8ce7b6e, type: 3}
