@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
-    public float zBoundary;
-
+    public float highZBoundary;
+    public float lowZBoundary;
     //range for speed of shooters
     public float startRangeLow;
     public float startRangeHigh;
@@ -42,7 +42,7 @@ public class ShooterScript : MonoBehaviour
     private void Start()
     {
         randomizer = Random.Range(startRangeLow, startRangeHigh);
-        projectileAmountRandomizer = Random.Range(3, 5);
+        projectileAmountRandomizer = Random.Range(1, 1);
         delayBetweenShots = Random.Range(shotsStartRangeLow, shotsStartRangeHigh);
         InvokeRepeating("TimeToShoot", delayBeforeFirstShot, delayBetweenShots);
         
@@ -54,11 +54,11 @@ public class ShooterScript : MonoBehaviour
 
         shooterSpeed += 0.5f * Time.deltaTime;
 
-        if (transform.position.z > zBoundary)
+        if (transform.position.z > highZBoundary)
         {
             direction = false;
         }
-        if (transform.position.z < -zBoundary)
+        if (transform.position.z < lowZBoundary)
         {
             direction = true;
         }
@@ -85,13 +85,12 @@ public class ShooterScript : MonoBehaviour
     void Shoot()
     {
 
-        for (int i = 0; i < 1; i++)
-        {
+        
             Rigidbody projectileInstance;
-            projectileInstance = Instantiate(projectilePrefab, new Vector3(transform.position.x + instantiationOffset, transform.position.y, transform.position.z), transform.rotation) as Rigidbody;
+            projectileInstance = Instantiate(projectilePrefab, new Vector3(transform.position.x + instantiationOffset, 1, transform.position.z), transform.rotation) as Rigidbody;
             projectileInstance.AddForce(Vector3.right * projectileSpeed);
             
-        }
+        
          
     }
 

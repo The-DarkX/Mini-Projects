@@ -112,21 +112,14 @@ public class PlayerInput : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            
             score --;
+            Destroy(collision.gameObject, 0f);
         }
 
         if (collision.gameObject.tag == "Coin")
         {
             score+=2;
+            Destroy(collision.gameObject, 0f);
         }
-    }
-    
-        
-    
-
-    void LevelReset()
-    {
-        transform.position = startingPosition;
-    }
+    }  
 }
