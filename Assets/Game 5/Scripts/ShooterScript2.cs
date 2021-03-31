@@ -31,6 +31,8 @@ public class ShooterScript2 : MonoBehaviour
 
     public float increasingSpeed = 0.5f;
 
+    public float xCoinSpawn;
+
     private void Start()
     {
         projectileAmountRandomizer = Random.Range(3, 5);
@@ -48,18 +50,19 @@ public class ShooterScript2 : MonoBehaviour
 
     void TimeToShoot()
     {
-        print("Shooting");
+        
         InvokeRepeating("Shoot", 1, 1);
         Invoke("CancelTheInvoke", projectileAmountRandomizer);
     }
 
+   
     void Shoot()
     {
 
         for (int i = 0; i < 1; i++)
         {
             Rigidbody projectileInstance;
-            projectileInstance = Instantiate(projectilePrefab, new Vector3(transform.position.x + instantiationOffset, transform.position.y, transform.position.z), transform.rotation) as Rigidbody;
+            projectileInstance = Instantiate(projectilePrefab, new Vector3(xCoinSpawn, 1/2, transform.position.z), transform.rotation) as Rigidbody;
             projectileInstance.AddForce(Vector3.right * projectileSpeed);
 
         }
@@ -69,5 +72,6 @@ public class ShooterScript2 : MonoBehaviour
     void CancelTheInvoke()
     {
         CancelInvoke("Shoot");
+        CancelInvoke("CancelTheInvoke");
     }
 }
