@@ -62,7 +62,7 @@ public class ShooterScript2 : MonoBehaviour
         for (int i = 0; i < 1; i++)
         {
             Rigidbody projectileInstance;
-            projectileInstance = Instantiate(projectilePrefab, new Vector3(xCoinSpawn, 1/2, transform.position.z), transform.rotation) as Rigidbody;
+            projectileInstance = Instantiate(projectilePrefab, new Vector3(xCoinSpawn, 8/10, transform.position.z), transform.rotation) as Rigidbody;
             projectileInstance.AddForce(Vector3.right * projectileSpeed);
 
         }

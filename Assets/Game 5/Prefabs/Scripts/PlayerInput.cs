@@ -57,12 +57,19 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        if (timer < 10)
+        if (timer < 10 && timer > 0) 
         {
             
                 timerText.color = finalWarningColor;
             
         }
+
+        if(score < 0)
+        {
+            score = 0;
+        }
+
+
 
 
 
@@ -105,6 +112,11 @@ public class PlayerInput : MonoBehaviour
             transform.position = new Vector3(xReset, transform.position.y, transform.position.z);
         }
 
+        if (timer == 0)
+        {
+            LevelEnd();
+        }
+
 
     }
 
@@ -121,5 +133,15 @@ public class PlayerInput : MonoBehaviour
             score+=2;
             Destroy(collision.gameObject, 0f);
         }
-    }  
+    }
+
+    private void LevelEnd()
+    {
+        
+        
+    }
+
+
+
+    
 }

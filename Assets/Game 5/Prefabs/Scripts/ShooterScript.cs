@@ -35,6 +35,8 @@ public class ShooterScript : MonoBehaviour
 
     public float increasingSpeed = 0.5f;
 
+    public float projectileInstantiationHeight = 1.0f;
+
     
 
     
@@ -87,7 +89,7 @@ public class ShooterScript : MonoBehaviour
 
         
             Rigidbody projectileInstance;
-            projectileInstance = Instantiate(projectilePrefab, new Vector3(transform.position.x + instantiationOffset, 1, transform.position.z), transform.rotation) as Rigidbody;
+            projectileInstance = Instantiate(projectilePrefab, new Vector3(transform.position.x + instantiationOffset, projectileInstantiationHeight, transform.position.z), transform.rotation) as Rigidbody;
             projectileInstance.AddForce(Vector3.right * projectileSpeed);
             
         
