@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class FloaterManager : MonoBehaviour
 {
-    public Text scoreText;
-
     public int totalFloaterAmount = 10;
 
     public Vector2 spawnArea;
 
     public GameObject[] floaterPrefabs;
 
-    public List<GameObject> blueFloaters = new List<GameObject>();
-    public List<GameObject> yellowFloaters = new List<GameObject>();
+    public List<CubeFloater> floaters = new List<CubeFloater>();
 
     Vector3 spawnPos;
     Quaternion spawnRotation;
+
+    bool allSpawned = false;
 
 	void Start()
     {
@@ -30,12 +29,23 @@ public class FloaterManager : MonoBehaviour
 
             Instantiate(floaterPrefabs[Random.Range(0, floaterPrefabs.Length)], spawnPos, spawnRotation, transform);
         }
+
+        allSpawned = true;
     }
 
-    void Update()
-    {
-        GameManager.DisplayScore(scoreText, yellowFloaters.Count);
-    }
+	private void Update()
+	{
+		for (int i = 0; i < floaters.Count; i++)
+		{
+            if (floaters[i] == null)
+                floaters.RemoveAt(i);
+		}
+
+        if (allSpawned && floaters.Count <= 0) 
+        {
+            GameManager.instance.Restart();
+        }
+	}
 
 	private void OnDrawGizmos()
 	{

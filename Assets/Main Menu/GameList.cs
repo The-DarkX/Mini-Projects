@@ -36,6 +36,6 @@ public class GameList : MonoBehaviour
 
 	void ItemClicked(int itemIndex)
 	{
-		GameManager.LoadScene(allGames[itemIndex - 1].sceneIndex);
+		GameManager.instance.LoadScene(allGames[itemIndex - 1].sceneIndex);
 	}
 }

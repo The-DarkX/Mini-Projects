@@ -11,7 +11,7 @@ public class CubeFloater : MonoBehaviour
 
     Vector3 moveDirection;
 
-    bool isBlue = true;
+    public bool isBlue = true;
 
     Rigidbody rb;
     FloaterManager manager;
@@ -22,6 +22,8 @@ public class CubeFloater : MonoBehaviour
         manager = GetComponentInParent<FloaterManager>();
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody>();
+
+        manager.floaters.Add(this);
     }
 
     void Update()
@@ -29,22 +31,10 @@ public class CubeFloater : MonoBehaviour
         if (isBlue) 
         {
             moveDirection = Vector3.up;
-
-            if (manager.yellowFloaters.Contains(gameObject))
-                manager.yellowFloaters.Remove(gameObject);
-
-            if (!manager.blueFloaters.Contains(gameObject))
-                manager.blueFloaters.Add(gameObject);
         }
         else 
         {
             moveDirection = Vector3.down;
-
-            if (manager.blueFloaters.Contains(gameObject))
-                manager.blueFloaters.Remove(gameObject);
-
-            if (!manager.yellowFloaters.Contains(gameObject))
-                manager.yellowFloaters.Add(gameObject);
         }
 
         rb.AddForce(moveDirection * movePower * Time.deltaTime, ForceMode.Force);
@@ -77,12 +67,4 @@ public class CubeFloater : MonoBehaviour
             SetYellow();
         }
     }
-
-	private void OnCollisionEnter(Collision collision)
-	{
-        if (collision.transform.CompareTag("Ground") && !isBlue)
-        {
-            GameManager.Restart();
-        }
-	}
 }

@@ -37,7 +37,7 @@ public class CubeMover : MonoBehaviour
         }
         else if (collision.transform.CompareTag("Player")) 
         {
-            GameManager.Restart();
+            GameManager.instance.Restart();
         }
     }
 }
