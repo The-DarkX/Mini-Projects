@@ -77,7 +77,7 @@ public class ShooterScript : MonoBehaviour
 
     void TimeToShoot()
     {
-        print("Shooting");
+        
         InvokeRepeating("Shoot", 1, 1);
         Invoke("CancelTheInvoke", projectileAmountRandomizer);
     }
@@ -98,18 +98,8 @@ public class ShooterScript : MonoBehaviour
     void CancelTheInvoke()
     {
         CancelInvoke("Shoot");
+        CancelInvoke("CancelTheInvoke");
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Projectile")
-        {
-            print("restart level");
-        }
-
-        if (collision.gameObject.tag == "Coin")
-        {
-            print("restart level");
-        }
-    }
+    
 }

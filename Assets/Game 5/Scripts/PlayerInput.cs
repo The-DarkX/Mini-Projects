@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInput : MonoBehaviour
 {
 
-    
+    public Rigidbody playerRb;
 
     public float speed = 10.0f;
 
@@ -16,33 +18,72 @@ public class PlayerInput : MonoBehaviour
 
     private float score = 0;
 
+    public TMP_Text scoreText;
+
+    private float timer = 60;
+
+    public TMP_Text timerText;
+
+    public Color mediumWarningColor;
+    public Color finalWarningColor;
+    public Color firstWarningColor;
     private void Start()
     {
         startingPosition = transform.position;
+        score = 0;
     }
 
     void Update()
     {
-        
+        timer -= 1.0f * Time.deltaTime;
+        scoreText.text = score.ToString();
+        timerText.text = Mathf.Round(timer).ToString();
+
+
+        if (timer < 30)
+        {
+            if(timer >= 20)
+            {
+                timerText.color = firstWarningColor;
+            }
+
+        }
+
+        if (timer < 20)
+        {
+            if(timer >= 10)
+            {
+                timerText.color = mediumWarningColor;
+            }
+        }
+
+        if (timer < 10)
+        {
+            
+                timerText.color = finalWarningColor;
+            
+        }
+
+
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            playerRb.AddRelativeForce(Vector3.right * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-Vector3.right * speed * Time.deltaTime);
+            playerRb.AddRelativeForce(-Vector3.right * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            playerRb.AddRelativeForce(Vector3.forward * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+            playerRb.AddRelativeForce(-Vector3.forward * speed * Time.deltaTime);
         }
 
         
@@ -67,17 +108,17 @@ public class PlayerInput : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            print("restart level");
+            
+            score --;
         }
 
         if (collision.gameObject.tag == "Coin")
         {
-            score++;
-            print("restart level");
+            score+=2;
         }
     }
     

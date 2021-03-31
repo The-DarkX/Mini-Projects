@@ -48,7 +48,7 @@ public class ShooterScript2 : MonoBehaviour
 
     void TimeToShoot()
     {
-        print("Shooting");
+        
         InvokeRepeating("Shoot", 1, 1);
         Invoke("CancelTheInvoke", projectileAmountRandomizer);
     }
@@ -69,5 +69,6 @@ public class ShooterScript2 : MonoBehaviour
     void CancelTheInvoke()
     {
         CancelInvoke("Shoot");
+        CancelInvoke("CancelTheInvoke");
     }
 }
