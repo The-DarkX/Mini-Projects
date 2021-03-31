@@ -20,7 +20,7 @@ public class CubeFloater : MonoBehaviour
     void Start()
     {
         manager = GetComponentInParent<FloaterManager>();
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = AudioManager.instance;
         rb = GetComponent<Rigidbody>();
 
         manager.floaters.Add(this);

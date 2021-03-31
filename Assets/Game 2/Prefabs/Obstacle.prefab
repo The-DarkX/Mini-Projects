@@ -106,4 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23aaf5ce6c65c4d48a9b5b72c820ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreDecrement: 20
+  particleFX: {fileID: 3609990414174763306, guid: 2598774273a125f48b60f856e0987405,
+    type: 3}
+  scoreDecrement: 50

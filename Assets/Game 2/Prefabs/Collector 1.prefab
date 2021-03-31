@@ -106,5 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60ce88c9d807a346b61dab41e3e2570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleFX: {fileID: 5146829091639884329, guid: 5236166317d24ed4da8d9f8eb750f9d5,
+    type: 3}
   minIncrement: 5
   maxIncrement: 15

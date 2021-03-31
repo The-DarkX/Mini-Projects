@@ -47,7 +47,7 @@ public class FloaterManager : MonoBehaviour
         }
 	}
 
-	private void OnDrawGizmos()
+	private void OnDrawGizmosSelected()
 	{
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, spawnArea * 2);

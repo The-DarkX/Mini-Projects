@@ -60,7 +60,13 @@ public class GameManager : MonoBehaviour
     public void SubtractScore(int scoreDecrement) 
     {
         if (score - scoreDecrement <= 0)
+        {
             score = 0;
+        }
+        else
+        {
+            score -= scoreDecrement;
+        }
     }
 
     public void LoadScene(int index) 
