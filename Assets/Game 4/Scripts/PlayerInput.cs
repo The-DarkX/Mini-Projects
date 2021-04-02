@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class PlayerInput : MonoBehaviour
     public float zReset = 9.5f;
     public float xReset = 9.5f;
 
+    
+
     private Vector3 startingPosition;
 
-    private float score = 0;
+    public float score = 0;
 
     public TMP_Text scoreText;
 
@@ -27,17 +30,30 @@ public class PlayerInput : MonoBehaviour
     public Color mediumWarningColor;
     public Color finalWarningColor;
     public Color firstWarningColor;
+    public Color groundColor;
     private void Start()
     {
         startingPosition = transform.position;
         score = 0;
+        timer = 60;
     }
 
     void Update()
     {
+
+        
+
+        if (timer <= 0)
+        {
+            LevelEnd();
+
+        }
+
+
         timer -= 1.0f * Time.deltaTime;
         scoreText.text = score.ToString();
         timerText.text = Mathf.Round(timer).ToString();
+
 
 
         if (timer < 30)
@@ -69,6 +85,15 @@ public class PlayerInput : MonoBehaviour
             score = 0;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EscapeToMain();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LevelReset();
+        }
 
 
 
@@ -112,10 +137,7 @@ public class PlayerInput : MonoBehaviour
             transform.position = new Vector3(xReset, transform.position.y, transform.position.z);
         }
 
-        if (timer == 0)
-        {
-            LevelEnd();
-        }
+        
 
 
     }
@@ -135,12 +157,22 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    
     private void LevelEnd()
     {
-        
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        print("Level Ending");
     }
 
+    private void EscapeToMain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
+
+    private void LevelReset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
     

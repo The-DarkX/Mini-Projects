@@ -10,4 +10,19 @@ public class PlayGame : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void StartNewGameFromPause()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void GoToMainMenuFromPause()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+    }
 }

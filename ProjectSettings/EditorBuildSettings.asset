@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Main Menu/Main Menu.unity
-    guid: e58cc104124c0444786b938a62f47775
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Game 1/Scenes/Game 1 Demo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
@@ -21,9 +21,15 @@ EditorBuildSettings:
     path: Assets/Game 4/Scenes/Game 5 Demo Home Screen.unity
     guid: 1e225da49baa0d74fa46f65d8e41f530
   - enabled: 1
+    path: Assets/Game 4/Scenes/Game 5 Demo How To Play.unity
+    guid: 021cb734dbf033242a29df0e66c1f1e0
+  - enabled: 1
     path: Assets/Game 4/Scenes/Game 5 Demo.unity
     guid: 6eca5f311c8a5c6499d12b173fe9ce5b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game 4/Scenes/Game 5 Demo Game How To Play.unity
     guid: 18fa2e9487d53a240a2167ec9ed4d4f1
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Game 5 Demo Pause Menu.unity
+    guid: 8a702dbd9fb04674abf48815b9265eea
   m_configObjects: {}
