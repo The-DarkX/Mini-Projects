@@ -6,7 +6,7 @@ using TMPro;
 public class ScoreDisplay : MonoBehaviour
 {
 
-    private PlayerInput score;
+    
 
     public TMP_Text scoreValue;
 
@@ -14,6 +14,9 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         
+            
+        scoreReference = PlayerPrefs.GetFloat("finalScore");
+
         scoreValue.text = scoreReference.ToString();
     }
     

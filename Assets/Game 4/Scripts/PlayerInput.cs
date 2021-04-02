@@ -137,6 +137,8 @@ public class PlayerInput : MonoBehaviour
             transform.position = new Vector3(xReset, transform.position.y, transform.position.z);
         }
 
+        PlayerPrefs.SetFloat("finalScore", score);
+
         
 
 
