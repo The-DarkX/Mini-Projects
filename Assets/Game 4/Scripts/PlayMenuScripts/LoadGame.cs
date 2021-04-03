@@ -29,4 +29,10 @@ public class LoadGame : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
 
     }
+
+    public void LoadMainfromPlay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+
+    }
 }

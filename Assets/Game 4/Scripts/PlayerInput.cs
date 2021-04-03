@@ -133,7 +133,8 @@ public class PlayerInput : MonoBehaviour
 
         
 
-        if(transform.position.z < -zReset)
+
+        if (transform.position.z < -zReset)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zReset);
         }

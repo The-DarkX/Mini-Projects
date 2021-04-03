@@ -256,6 +256,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8636219649869213434, guid: fe1e15037b5f500469115217b9637d29,
         type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8412036502458035760, guid: 9f4b62c9718dcb74cba833784c4f1f0e,
+        type: 3}
+    - target: {fileID: 8636219649869213434, guid: fe1e15037b5f500469115217b9637d29,
+        type: 3}
       propertyPath: shotsStartRangeLow
       value: 3
       objectReference: {fileID: 0}
@@ -830,6 +836,12 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 8636219649869213434, guid: fe1e15037b5f500469115217b9637d29,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8412036502458035760, guid: 9f4b62c9718dcb74cba833784c4f1f0e,
+        type: 3}
     - target: {fileID: 8636219649869213434, guid: fe1e15037b5f500469115217b9637d29,
         type: 3}
       propertyPath: shotsStartRangeLow

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 1225761583}
   - component: {fileID: 1225761582}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: MAIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,8 +1394,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 351413568}
-        m_MethodName: Quit
+      - m_Target: {fileID: 351413570}
+        m_MethodName: LoadMainfromPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
