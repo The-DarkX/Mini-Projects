@@ -25,6 +25,11 @@ public class FloaterManager : MonoBehaviour
         for (int i = 0; i < totalFloaterAmount; i++)
         {
             spawnPos = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), transform.position.z);
+            if (Physics.OverlapSphere(spawnPos, 2) != null) 
+            {
+                spawnPos = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), transform.position.z);
+            }
+
             spawnRotation = Quaternion.Euler(0, 90, 0);
 
             Instantiate(floaterPrefabs[Random.Range(0, floaterPrefabs.Length)], spawnPos, spawnRotation, transform);
@@ -43,7 +48,7 @@ public class FloaterManager : MonoBehaviour
 
         if (allSpawned && floaters.Count <= 0) 
         {
-            GameManager.instance.Restart();
+            GameManager.instance.GameOver();
         }
 	}
 
