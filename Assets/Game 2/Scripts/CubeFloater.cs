@@ -67,4 +67,9 @@ public class CubeFloater : MonoBehaviour
             SetYellow();
         }
     }
+
+    public void Destroy() 
+    {
+        Destroy(gameObject);
+    }
 }
