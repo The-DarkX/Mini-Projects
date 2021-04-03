@@ -6,6 +6,6 @@ public class QuittingScript : MonoBehaviour
 {
     public void Quit()
     {
-        print("Quit");
+        Application.Quit();
     }
 }

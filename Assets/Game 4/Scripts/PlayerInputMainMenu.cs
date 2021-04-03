@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInputMainMenu : MonoBehaviour
 {
 
+    
+
     public float xReset;
     public float yReset;
     public float xResetNeg;

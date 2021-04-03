@@ -23,13 +23,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game 4/Scenes/Game 5 Demo How To Play.unity
     guid: 021cb734dbf033242a29df0e66c1f1e0
-  - enabled: 1
-    path: Assets/Game 4/Scenes/Game 5 Demo.unity
-    guid: 6eca5f311c8a5c6499d12b173fe9ce5b
   - enabled: 0
-    path: Assets/Game 4/Scenes/Game 5 Demo Game How To Play.unity
-    guid: 18fa2e9487d53a240a2167ec9ed4d4f1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Game 5 Play.unity
+    guid: 87d2b42da8c510a47885ba67a8503a9e
   - enabled: 1
     path: Assets/Game 4/Scenes/Game 5 Demo Pause Menu.unity
     guid: 8a702dbd9fb04674abf48815b9265eea
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Levels/Game 5 Demo Easy.unity
+    guid: 6eca5f311c8a5c6499d12b173fe9ce5b
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Levels/Game 5 Demo Medium.unity
+    guid: 732d9d4af6061124c8cfb9e022330513
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Levels/Game 5 Demo Hard.unity
+    guid: 9c642724c0918f5428240b037e908ebc
+  - enabled: 1
+    path: Assets/Game 4/Scenes/Levels/Game 5 Demo Extreme.unity
+    guid: be1c7742fedba8d428bf5c675d9d64c4
   m_configObjects: {}
