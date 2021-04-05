@@ -54,21 +54,24 @@ public class CubeFloater : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-        isBlue = !isBlue;
-
-        audioManager.PlaySound("Select");
-
-        if (isBlue)
+        if (GameManager.instance.isGameRunning)
         {
-            SetBlue();
-        }
-        else
-        {
-            SetYellow();
+            isBlue = !isBlue;
+
+            audioManager.PlaySound("Select");
+
+            if (isBlue)
+            {
+                SetBlue();
+            }
+            else
+            {
+                SetYellow();
+            }
         }
     }
 
-    public void Destroy() 
+    public void DestroyFloater() 
     {
         Destroy(gameObject);
     }

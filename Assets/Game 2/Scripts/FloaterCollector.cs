@@ -27,7 +27,9 @@ public class FloaterCollector : MonoBehaviour
 
 				GameManager.instance.AddScore(minIncrement, maxIncrement);
 				GameManager.instance.DisplayScore();
-				Destroy(other.gameObject);
+
+				other.gameObject.transform.parent.GetComponent<CubeFloater>().DestroyFloater();
+
 				Destroy(particles, 2f);
 			}
 		}

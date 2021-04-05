@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject GameOverCanvas;
+
     public TMP_Text scoreText;
     public TMP_Text timerText;
 
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     public float countdownTime = 10f;
     public bool useTimer = true;
     public bool canCount = true;
+    public bool isGameRunning = false;
 
     float timer;
 
@@ -35,6 +38,9 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
         audioManager = AudioManager.instance;
+        GameOverCanvas.SetActive(false);
+
+        isGameRunning = true;
 
         audioManager.PlaySound("Background");
 
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-        if (useTimer) 
+        if (useTimer && isGameRunning) 
         {
             if (timer > 0.0f && canCount)
             {
@@ -91,9 +97,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        isGameRunning = false;
         canCount = false;
-        print("Game Over");
         audioManager.StopSound("Background");
+        audioManager.PlaySound("GameOver");
+
+        GameOverCanvas.SetActive(true);
     }
 
     public void DisplayScore()
@@ -103,12 +112,25 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int scoreIncrement) 
     {
-        score += scoreIncrement;
+        int newScore = score + scoreIncrement;
+
+        if (newScore > PlayerPrefs.GetInt("Game2_HighScore", 0)) 
+        {
+            PlayerPrefs.SetInt("Game2_HighScore", newScore);
+        }
+        score = newScore;
     }
 
     public void AddScore(int minScoreIncrement, int maxScoreIncrement)
     {
-        score += Random.Range(minScoreIncrement, maxScoreIncrement);
+        int newScore = Random.Range(minScoreIncrement, maxScoreIncrement);
+
+        if (newScore > PlayerPrefs.GetInt("Game2_HighScore", 0))
+        {
+            PlayerPrefs.SetInt("Game2_HighScore", newScore);
+        }
+
+        score = newScore;
     }
 
     public void SubtractScore(int scoreDecrement) 
@@ -126,5 +148,10 @@ public class GameManager : MonoBehaviour
     public void LoadScene(int index) 
     {
         SceneManager.LoadScene(index);
+    }
+
+    public void Quit() 
+    {
+        Application.Quit();
     }
 }

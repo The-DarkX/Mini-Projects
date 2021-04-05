@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
 			GameManager.instance.SubtractScore(scoreDecrement);
 			GameManager.instance.DisplayScore();
 
-			collision.gameObject.GetComponent<CubeFloater>().Destroy();
+			collision.gameObject.GetComponent<CubeFloater>().DestroyFloater();
 
 			Destroy(particles, 2f);
 		}

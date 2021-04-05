@@ -32,7 +32,7 @@ public class FloaterManager : MonoBehaviour
 
             spawnRotation = Quaternion.Euler(0, 90, 0);
 
-            Instantiate(floaterPrefabs[Random.Range(0, floaterPrefabs.Length)], spawnPos, spawnRotation, transform);
+            Instantiate(floaterPrefabs[Random.Range(0, floaterPrefabs.Length)], spawnPos + transform.position, spawnRotation, transform);
         }
 
         allSpawned = true;
