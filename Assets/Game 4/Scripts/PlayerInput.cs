@@ -8,6 +8,11 @@ using UnityEngine.SceneManagement;
 public class PlayerInput : MonoBehaviour
 {
 
+    public int escapeSceneDifference;
+    public int levelEndSceneDifference;
+
+    private AudioManager audioManager;
+
     public Rigidbody playerRb;
 
     public float speed = 10.0f;
@@ -36,6 +41,14 @@ public class PlayerInput : MonoBehaviour
         startingPosition = transform.position;
         score = 0;
         timer = 60;
+
+        audioManager = AudioManager.instance;
+
+        Invoke("StopMainMusic", 0.1f) ;
+
+
+        audioManager.PlaySound("ActionBackground");
+        
     }
 
     void Update()
@@ -120,7 +133,8 @@ public class PlayerInput : MonoBehaviour
 
         
 
-        if(transform.position.z < -zReset)
+
+        if (transform.position.z < -zReset)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zReset);
         }
@@ -150,25 +164,35 @@ public class PlayerInput : MonoBehaviour
         {
             score --;
             Destroy(collision.gameObject, 0f);
+            audioManager.PlaySound("ObstacleCollision");
+            
+
         }
 
         if (collision.gameObject.tag == "Coin")
         {
             score+=2;
             Destroy(collision.gameObject, 0f);
+            audioManager.PlaySound("PickUp");
         }
     }
 
     
     private void LevelEnd()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        audioManager.StopSound("ActionBackground");
+        audioManager.PlaySound("MenuBackground");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - levelEndSceneDifference);
+        
         print("Level Ending");
     }
 
     private void EscapeToMain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        audioManager.StopSound("ActionBackground");
+        audioManager.PlaySound("MenuBackground");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - escapeSceneDifference);
+        
     }
 
     private void LevelReset()
@@ -176,6 +200,10 @@ public class PlayerInput : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    private void StopMainMusic()
+    {
+        audioManager.StopSound("MenuBackground");
+    }
 
     
 }
