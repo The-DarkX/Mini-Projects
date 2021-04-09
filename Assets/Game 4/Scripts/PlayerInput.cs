@@ -131,6 +131,8 @@ public class PlayerInput : MonoBehaviour
             playerRb.AddRelativeForce(-Vector3.forward * speed * Time.deltaTime);
         }
 
+        playerRb.velocity = new Vector3(0, 0, 0) ;
+
         
 
 
@@ -184,7 +186,7 @@ public class PlayerInput : MonoBehaviour
         audioManager.PlaySound("MenuBackground");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - levelEndSceneDifference);
         
-        print("Level Ending");
+        
     }
 
     private void EscapeToMain()

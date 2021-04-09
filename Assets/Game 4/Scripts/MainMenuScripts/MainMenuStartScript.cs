@@ -7,6 +7,8 @@ public class MainMenuStartScript : MonoBehaviour
 {
 
     private AudioManager audioManager;
+
+    
     private void Start()
     {
         audioManager = AudioManager.instance;
@@ -19,7 +21,7 @@ public class MainMenuStartScript : MonoBehaviour
         audioManager.PlaySound("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
-        audioManager.StopSound("MenuBackground");
+        
     }
 
     public void LoadHowToPlay()
@@ -28,6 +30,6 @@ public class MainMenuStartScript : MonoBehaviour
         audioManager.PlaySound("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        audioManager.StopSound("MenuBackground");
+        
     }
 }
